@@ -2,8 +2,10 @@ const express = require('express');
 const app = express();
 const bodyParser = require('body-parser');
 app.use(bodyParser.json());
-app.get('/', (req, res) => {
-    res.status(200).send('Hi there');
+app.get('/api', (req, res) => {
+    res.status(200).json({
+        msg: 'hello'
+    });
 });
 
 
