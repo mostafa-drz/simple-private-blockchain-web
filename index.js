@@ -82,11 +82,10 @@ app.get('/api/block-height', (req, res) => {
         res.status(400).send(error);
     })
 })
-app.get('/api', (req, res) => {
-    res.status(200).json({
-        msg: 'hello'
-    });
-});
+
+app.get('/api/blocks', (req, res) => {
+
+})
 
 
 app.use(express.static('client/build'));
