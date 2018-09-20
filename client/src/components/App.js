@@ -2,12 +2,13 @@ import React, { Component } from "react";
 import BlockCounts from "./BlockCounts";
 import Error from "./Error";
 import styled from "styled-components";
-import { fetchBlockCounts } from "../utils";
-import SearchBlock from "./SearchBlock";
+import { fetchBlockCounts, renderCurrentView } from "../utils";
+import NavBar from "./NavBar";
 class App extends Component {
   state = {
     numberOfBlocks: 0,
-    error: null
+    error: null,
+    view: "info"
   };
   componentDidMount() {
     fetchBlockCounts()
@@ -18,13 +19,17 @@ class App extends Component {
         this.setState({ error: "something went wrong when tried to get the block height" });
       });
   }
+  changeView = ({ view }) => {
+    this.setState({ view });
+  };
   render() {
-    const { numberOfBlocks, error } = this.state;
+    const { numberOfBlocks, error, view } = this.state;
     return (
       <AppContainer>
         {error && <Error message={error} />}
         <BlockCounts count={numberOfBlocks} />
-        <SearchBlock />
+        <NavBar onChangeView={this.changeView} current={view} />
+        {renderCurrentView({ current: view })}
       </AppContainer>
     );
   }
