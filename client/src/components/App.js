@@ -3,10 +3,11 @@ import BlockCounts from "./BlockCounts";
 import Error from "./Error";
 import styled from "styled-components";
 import { fetchBlockCounts } from "../utils";
+import SearchBlock from "./SearchBlock";
 class App extends Component {
   state = {
     numberOfBlocks: 0,
-    error: "This is wrong"
+    error: null
   };
   componentDidMount() {
     fetchBlockCounts()
@@ -23,6 +24,7 @@ class App extends Component {
       <AppContainer>
         {error && <Error message={error} />}
         <BlockCounts count={numberOfBlocks} />
+        <SearchBlock />
       </AppContainer>
     );
   }
@@ -36,5 +38,6 @@ const AppContainer = styled.div`
   min-height: 100vh;
   display: flex;
   flex-direction: column;
+  align-items: center;
 `;
 export default App;
