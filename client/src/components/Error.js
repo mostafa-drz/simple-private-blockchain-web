@@ -7,12 +7,9 @@ const Error = ({ message }) => (
 );
 
 const ErrorBox = styled.div`
-  color: #bf360c;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 1.7rem;
-  font-weight: 600;
+  padding: 2% 3%;
+  background-color: #e57373;
+  margin-top: 1%;
 `;
 
 export default Error;

@@ -1,11 +1,12 @@
 import React from "react";
 import styled from "styled-components";
+import uuid from "uuid";
 const BlockInfo = ({ block }) => (
   <InfoContainer>{Object.keys(block).map(obj => Info({ title: obj, value: block[obj] }))}</InfoContainer>
 );
 
 const Info = ({ title, value }) => (
-  <InfoRow>
+  <InfoRow key={uuid()}>
     <InfoTitle>{title}</InfoTitle>
     <InfoValue>{value}</InfoValue>
   </InfoRow>
