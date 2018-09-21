@@ -45,13 +45,13 @@ const Input = styled.input`
   background-color: transparent;
   width: 100%;
   min-width: 500px;
-  border-bottom: 10px solid #424242;
-  transition: all 0.3 ease;
+  border-bottom: 3px solid #00796b;
+  transition: all 0.4 ease;
   font-size: 1.8rem;
   &:focus {
-    border-bottom-color: ${props => (props.hasError ? "#dd2c00" : "#212121")};
+    border-bottom-color: ${props => (props.hasError ? "#dd2c00" : "#004d40")};
     color: ${props => (props.hasError ? "#dd2c00" : "#000 ")};
-    transition: all 0.3 ease;
+    transition: all 0.4 ease;
     outline: none;
   }
 `;
