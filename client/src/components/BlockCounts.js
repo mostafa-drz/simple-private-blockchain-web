@@ -7,7 +7,7 @@ const BlockCounts = ({ count }) => (
 );
 
 const BlockCountsBox = styled.div`
-  background-color: #01579b;
+  border: 1px solid #01579b;
   width: 200px;
   height: 50px;
   top: 5px;
@@ -18,7 +18,7 @@ const BlockCountsBox = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  color: #fff;
+  color: #1a237e;
   box-shadow: 1px 1px 1px 1px #0277bd;
 `;
 export default BlockCounts;

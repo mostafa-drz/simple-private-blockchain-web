@@ -3,6 +3,7 @@ import React from "react";
 import SearchBlock from "../components/SearchBlock";
 import NewBlock from "../components/NewBlock";
 import ValidateABlock from "../components/ValidateABlock";
+import ValidateTheChain from "../components/ValidateTheChain";
 export const fetchBlockCounts = () => {
   return axios.get("/api/block-height");
 };
@@ -17,9 +18,14 @@ export const addNewBlock = ({ body }) => {
 export const validateABlock = ({ height }) => {
   return axios.get(`/api/validate-a-block/${height}`);
 };
+
+export const getChainValidation = () => {
+  return axios.get("/api/validate-the-chain");
+};
 export const getResponseErrorMessage = error => {
   return error.response ? error.response.data.error.message || "Soemthing went wrong" : "Something wnet wrong";
 };
+
 export const renderCurrentView = ({ current }) => {
   switch (current) {
     case "info":
@@ -29,7 +35,7 @@ export const renderCurrentView = ({ current }) => {
     case "validate-block":
       return <ValidateABlock />;
     case "validate-chain":
-      return <p>validate the chain</p>;
+      return <ValidateTheChain />;
     default:
       break;
   }
