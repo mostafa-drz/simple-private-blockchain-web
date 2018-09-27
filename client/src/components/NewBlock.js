@@ -3,6 +3,7 @@ import styled from "styled-components";
 import { addNewBlock, getResponseErrorMessage } from "../utils";
 import Error from "./Error";
 import Success from "./Success";
+import CountContext from "../CountContext";
 class NewBlock extends Component {
   state = {
     body: "",
@@ -14,6 +15,7 @@ class NewBlock extends Component {
     addNewBlock({ body })
       .then(() => {
         this.setState({ body: "", success: "Block Added successfully!" });
+        this.props.increament();
       })
       .catch(error => {
         this.setState({ error: getResponseErrorMessage(error) });
@@ -65,4 +67,6 @@ const Button = styled.button`
   }
 `;
 const TextArea = styled.textarea``;
-export default NewBlock;
+export default props => (
+  <CountContext.Consumer>{({ increament }) => <NewBlock {...props} increament={increament} />}</CountContext.Consumer>
+);

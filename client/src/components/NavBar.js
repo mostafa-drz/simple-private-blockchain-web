@@ -29,11 +29,8 @@ const NavBarContainer = styled.div`
 `;
 
 const NavItem = styled.div`
-  background: transparent;
-  border: 2px solid #1a237e;
   padding: 2% 3%;
-  background-color: ${props => (props.active ? "#e1f5fe" : "#42a5f5")};
-  box-shadow: 1px 1px 1px #01579b;
+  color: ${props => (props.active ? "#42a5f5" : "#1a237e")};
   font-size: 1.2rem;
   width: 250px;
   transition: all 0.4s ease;
@@ -42,12 +39,10 @@ const NavItem = styled.div`
   }
   &:hover {
     cursor: pointer;
-    background-color: #e1f5fe;
-    transition: all 0.4s ease;
+    color: #42a5f5;
   }
   &:active {
     transform: translateY(-3px);
-    box-shadow: 1px 1px 1px #ccc;
     transition: all 0.4s ease;
   }
 `;

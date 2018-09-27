@@ -4,11 +4,15 @@ import Error from "./Error";
 import styled from "styled-components";
 import { fetchBlockCounts, renderCurrentView } from "../utils";
 import NavBar from "./NavBar";
+import CountContext from "../CountContext";
 class App extends Component {
   state = {
     numberOfBlocks: 0,
     error: null,
     view: "info"
+  };
+  increament = () => {
+    this.setState(prevState => ({ numberOfBlocks: prevState.numberOfBlocks + 1 }));
   };
   componentDidMount() {
     fetchBlockCounts()
@@ -25,18 +29,20 @@ class App extends Component {
   render() {
     const { numberOfBlocks, error, view } = this.state;
     return (
-      <AppContainer>
-        {error && <Error message={error} />}
-        <BlockCounts count={numberOfBlocks} />
-        <NavBar onChangeView={this.changeView} current={view} />
-        {renderCurrentView({ current: view })}
-      </AppContainer>
+      <CountContext.Provider value={{ numberOfBlocks: this.state.numberOfBlocks, increament: this.increament }}>
+        <AppContainer>
+          {error && <Error message={error} />}
+          <BlockCounts count={numberOfBlocks} />
+          <NavBar onChangeView={this.changeView} current={view} />
+          {renderCurrentView({ current: view })}
+        </AppContainer>
+      </CountContext.Provider>
     );
   }
 }
 
 const AppContainer = styled.div`
-  background-color: #90caf9;
+  background-color: #e1f5fe;
   width: 100%;
   height: 100%;
   min-width: 100vw;

@@ -35,7 +35,7 @@ app.get('/api/block/:height', (req, res) => {
         chain.getBlock(req.params.height).then((value) => {
             res.status(200).send(value);
         }).catch((error) => {
-            return res.status(500).send(error);
+            return res.status(400).send(error);
         })
     } catch (error) {
         console.log(error);
@@ -43,7 +43,7 @@ app.get('/api/block/:height', (req, res) => {
 })
 
 app.get('/api/validate-a-block/:height', (req, res) => {
-    if (req.params.height < 0) {
+    if (req.params.height < 0 || isNaN(req.params.height) || !Number.isInteger(parseInt(req.params.height, 10))) {
         return res.status(400).send({
             error: {
                 message: 'invalid block number'
