@@ -29,10 +29,10 @@ const NavBarContainer = styled.div`
 `;
 
 const NavItem = styled.div`
-  padding: 2% 3%;
+  padding: 1% 3%;
   color: ${props => (props.active ? "#42a5f5" : "#1a237e")};
-  font-size: 1.2rem;
-  width: 250px;
+  font-size: 1.4rem;
+  min-width: 250px;
   transition: all 0.4s ease;
   &:not(:first-of-type) {
     margin-left: 1%;

@@ -7,7 +7,6 @@ import { debounce } from "lodash";
 import Error from "./Error";
 class SearchBlock extends Component {
   state = {
-    all: [],
     result: null,
     error: null
   };
@@ -17,7 +16,7 @@ class SearchBlock extends Component {
         this.setState({ result: data });
       })
       .catch(error => {
-        this.setState({ error: getResponseErrorMessage(error) });
+        this.setState({ error: getResponseErrorMessage(error), result: null });
       });
   }, 1000);
 
