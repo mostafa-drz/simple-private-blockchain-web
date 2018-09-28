@@ -15,22 +15,16 @@ In this application you can do the following actions:
 
 This app includes an API service and also a front App application implemented by react.
 
-<hr/>
-
 ## Installation
 
 To install the application clone the repo and then run `npm run install-deps`. It installs all necessary dependencies for both API service and front-end service.<br/>
 If you only want to use the API service then run `npm install` and it installs all the required dependencies for API service.
-
-<hr/>
 
 ## Run The application
 
 You can run the application by `npm run dev`. It starts both the API service and front-end App. Then you can visit the front-App on the localhost:3000<br/>
 If you want to use the API service, it's runing on localhost:8000. To learn more about the endpoints read the next section.<br/>
 You can only start the API service by running `npm run server`.
-
-<hr/>
 
 ## End Points
 
