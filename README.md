@@ -31,10 +31,10 @@ You can only start the API service by running `npm run server`.
 <thead><tr><th>Path</th><th>Method</th><th>Description</th><th>Request Example</th><th>Response Example </th><th>Errors</th></tr></thead>
 <tbody>
 <tr>
-<td>/api/block/:height</td>
+<td>/block/:height</td>
 <td>GET</td>
 <td>Get the information of the block at height</td>
-<td>api/block/3</td>
+<td>/block/3</td>
 <td>
 {
     "data": "this the third block",
@@ -51,7 +51,7 @@ You can only start the API service by running `npm run server`.
 </td>
 </tr>
 <tr>
-  <td>/api/block</td>
+  <td>/block</td>
   <td>POST</td>
   <td>Adds a new block to the chain</td>
   <td>{"body":"Hello chain"}
@@ -72,10 +72,10 @@ You can only start the API service by running `npm run server`.
   </td>
 </tr>
 <tr>
-  <td>/api/validate-a-block/:height</td>
+  <td>/validate-a-block/:height</td>
   <td>GET</td>
   <td>Checks a block validation</td>
-  <td>/api/validate-a-block/5
+  <td>/validate-a-block/5
   </td>
   <td>
   {
@@ -89,10 +89,10 @@ You can only start the API service by running `npm run server`.
   </td>
 </tr>
 <tr>
-  <td>/api/validate-the-chain</td>
+  <td>/validate-the-chain</td>
   <td>GET</td>
   <td>Validates the whole chain and it returns a list of invalid blocks</td>
-  <td>/api/validate-the-chain/
+  <td>/validate-the-chain/
   </td>
   <td>
     {

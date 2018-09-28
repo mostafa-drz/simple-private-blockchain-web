@@ -15,6 +15,13 @@ class Block {
 }
 
 class Blockchain {
+    constructor() {
+        getNumberOfRecordsInDB().then(count => {
+            if (count === 0) {
+                this.createGenesisBlock();
+            }
+        });
+    }
     createGenesisBlock() {
         return new Promise((resolve, reject) => {
             const newBlock = new Block("First block in the chain - Genesis block");
@@ -36,7 +43,7 @@ class Blockchain {
 
     }
     addBlock(newBlock) {
-        return new Promise(async(resolve, reject) => {
+        return new Promise(async (resolve, reject) => {
             try {
                 const height = await this.getBlockHeight();
                 if (height === 0) {
@@ -87,9 +94,9 @@ class Blockchain {
         });
     }
     getBlock(blockHeight) {
-        return new Promise(async(resolve, reject) => {
+        return new Promise(async (resolve, reject) => {
             const height = await this.getBlockHeight();
-            if (blockHeight > height) {
+            if (blockHeight >= height) {
                 return reject({
                     error: {
                         message: 'Invalid Block number'
@@ -110,9 +117,9 @@ class Blockchain {
     }
 
     validateBlock(blockHeight) {
-        return new Promise(async(resolve, reject) => {
+        return new Promise(async (resolve, reject) => {
             const chainHeight = await this.getBlockHeight();
-            if (blockHeight > chainHeight) {
+            if (blockHeight >= chainHeight) {
                 return reject({
                     error: {
                         message: 'Invalid block number'
@@ -145,7 +152,7 @@ class Blockchain {
     }
 
     validateChain() {
-        return new Promise(async(resolve, reject) => {
+        return new Promise(async (resolve, reject) => {
             try {
                 let errorLog = [];
                 const BLOCK_HEIGHT = await this.getBlockHeight();

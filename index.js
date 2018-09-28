@@ -4,8 +4,8 @@ const bodyParser = require('body-parser');
 const Blockchain = require('./simpleChain');
 const chain = new Blockchain();
 app.use(bodyParser.json());
-app.post('/api/block', (req, res) => {
-    if (!req.body || !req.body.data || req.body.data.trim() === 0) {
+app.post('/block', (req, res) => {
+    if (!req.body || !req.body.body || req.body.body.trim() === 0) {
         return res.status(400).send({
             error: {
                 message: "The body can not be empty"
@@ -23,7 +23,7 @@ app.post('/api/block', (req, res) => {
     }
 })
 
-app.get('/api/block/:height', (req, res) => {
+app.get('/block/:height', (req, res) => {
     if (req.params.height < 0) {
         return res.status(400).send({
             error: {
@@ -42,7 +42,7 @@ app.get('/api/block/:height', (req, res) => {
     }
 })
 
-app.get('/api/validate-a-block/:height', (req, res) => {
+app.get('/validate-a-block/:height', (req, res) => {
     if (req.params.height < 0 || isNaN(req.params.height) || !Number.isInteger(parseInt(req.params.height, 10))) {
         return res.status(400).send({
             error: {
@@ -61,7 +61,7 @@ app.get('/api/validate-a-block/:height', (req, res) => {
     }
 });
 
-app.get('/api/validate-the-chain', (req, res) => {
+app.get('/validate-the-chain', (req, res) => {
     try {
         chain.validateChain().then((result) => {
             res.status(200).send(result);
@@ -73,7 +73,7 @@ app.get('/api/validate-the-chain', (req, res) => {
     }
 })
 
-app.get('/api/block-height', (req, res) => {
+app.get('/block-height', (req, res) => {
     chain.getBlockHeight().then((height) => {
         res.status(200).send({
             height

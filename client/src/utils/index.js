@@ -5,37 +5,47 @@ import NewBlock from "../components/NewBlock";
 import ValidateABlock from "../components/ValidateABlock";
 import ValidateTheChain from "../components/ValidateTheChain";
 export const fetchBlockCounts = () => {
-  return axios.get("/api/block-height");
+  return axios.get("/block-height");
 };
 
-export const getBlockInfo = ({ height }) => {
-  return axios.get(`/api/block/${height}`);
+export const getBlockInfo = ({
+  height
+}) => {
+  return axios.get(`/block/${height}`);
 };
 
-export const addNewBlock = ({ body }) => {
-  return axios.post("/api/block", { data: body });
+export const addNewBlock = ({
+  body
+}) => {
+  return axios.post("/block", {
+    body
+  });
 };
-export const validateABlock = ({ height }) => {
-  return axios.get(`/api/validate-a-block/${height}`);
+export const validateABlock = ({
+  height
+}) => {
+  return axios.get(`/validate-a-block/${height}`);
 };
 
 export const getChainValidation = () => {
-  return axios.get("/api/validate-the-chain");
+  return axios.get("/validate-the-chain");
 };
 export const getResponseErrorMessage = error => {
   return error.response ? error.response.data.error.message || "Soemthing went wrong" : "Something wnet wrong";
 };
 
-export const renderCurrentView = ({ current }) => {
+export const renderCurrentView = ({
+  current
+}) => {
   switch (current) {
     case "info":
-      return <SearchBlock />;
+      return <SearchBlock / > ;
     case "new":
-      return <NewBlock />;
+      return <NewBlock / > ;
     case "validate-block":
-      return <ValidateABlock />;
+      return <ValidateABlock / > ;
     case "validate-chain":
-      return <ValidateTheChain />;
+      return <ValidateTheChain / > ;
     default:
       break;
   }

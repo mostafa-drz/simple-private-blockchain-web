@@ -8,7 +8,7 @@
         "server": "nodemon index.js --exec babel-node",
         "client": "npm run start --prefix client",
         "dev": "concurrently \"npm run server\" \"npm run client\"",
-        "install-deps": "npm install && npm install --prefix client"
+        "install-deps": "npm install && cd client && npm install"
     },
     "author": "",
     "license": "ISC",
