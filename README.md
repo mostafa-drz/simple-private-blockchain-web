@@ -9,7 +9,6 @@ In this application you can do the following actions:
 <li>Validate a block</li>
 <li>Validate the chain</li>
 </ul>
-<hr/>
 
 ## Structure
 
