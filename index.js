@@ -83,11 +83,6 @@ app.get('/api/block-height', (req, res) => {
     })
 })
 
-app.get('/api/blocks', (req, res) => {
-
-})
-
-
 app.use(express.static('client/build'));
 
 const path = require('path');
