@@ -103,4 +103,12 @@ You can only start the API service by running `npm run server`.
   </td>
 </tr>
 </tbody>
+
+<br>
 </table>
+
+---
+
+<b>NOTE! This project is not production ready and is only for porpuse of learning 👨🏻‍🎓</b>
+
+❤️
